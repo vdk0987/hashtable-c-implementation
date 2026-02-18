@@ -17,3 +17,9 @@ ht_hash_table* ht_new() {
     ht->items = calloc((size_t)ht->size, sizeof(ht_item*));
     return ht;
 }
+
+static void ht_del_item(ht_item* i){
+    free(i->key);
+    free(i->value);
+    free(i);
+}
